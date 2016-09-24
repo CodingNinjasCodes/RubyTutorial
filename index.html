@@ -81,6 +81,624 @@ String
 TrueClass
 </code></pre>
 
+<h2>
+<a id="arithmetic" class="anchor" href="#arithmetic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arithmetic</h2>
+
+<p>Basic Arithmetic operators are '+','-','*','/' and '%'.</p>
+
+<div class="highlight highlight-source-ruby"><pre>five <span class="pl-k">=</span> <span class="pl-c1">5</span>
+two <span class="pl-k">=</span> <span class="pl-c1">2</span>
+seven <span class="pl-k">=</span> <span class="pl-c1">5</span> <span class="pl-k">+</span> <span class="pl-c1">2</span>
+</pre></div>
+
+<pre><code>7
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>ten <span class="pl-k">=</span> five <span class="pl-k">*</span> two</pre></div>
+
+<pre><code>10
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>one <span class="pl-k">=</span> five <span class="pl-k">%</span> two</pre></div>
+
+<pre><code>1
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>two <span class="pl-k">=</span> five <span class="pl-k">/</span> two</pre></div>
+
+<pre><code>2
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>three <span class="pl-k">=</span> five <span class="pl-k">-</span> two
+</pre></div>
+
+<pre><code>3
+</code></pre>
+
+<h2>
+<a id="strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Strings</h2>
+
+<div class="highlight highlight-source-ruby"><pre>my_string <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Programming in Ruby Is Fun.<span class="pl-pds">"</span></span></pre></div>
+
+<pre><code>"Programming in Ruby Is Fun."
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_string.length()</pre></div>
+
+<pre><code>27
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_string.reverse()</pre></div>
+
+<pre><code>".nuF sI ybuR ni gnimmargorP"
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>puts my_string</pre></div>
+
+<pre><code>Programming in Ruby Is Fun.
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_string.reverse!()</pre></div>
+
+<pre><code>".nuF sI ybuR ni gnimmargorP"
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>puts my_string</pre></div>
+
+<pre><code>.nuF sI ybuR ni gnimmargorP
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_string <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Programming in Ruby Is Fun.<span class="pl-pds">"</span></span>
+my_string.split(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>)</pre></div>
+
+<pre><code>["Programming", "in", "Ruby", "Is", "Fun."]
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>words <span class="pl-k">=</span> my_string.split(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>)
+puts words <span class="pl-c">#Gives an array, we'll come to it</span></pre></div>
+
+<pre><code>["Programming", "in", "Ruby", "Is", "Fun."]
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>word <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Programming<span class="pl-pds">"</span></span></pre></div>
+
+<pre><code>"Programming"
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>word.downcase() <span class="pl-c">#Get a word with lower case letters</span></pre></div>
+
+<pre><code>"programming"
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>word.upcase() <span class="pl-c"># get a word with upper case letters</span></pre></div>
+
+<pre><code>"PROGRAMMING"
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c">#This is a single line comment</span>
+puts <span class="pl-s"><span class="pl-pds">"</span>comment<span class="pl-pds">"</span></span> <span class="pl-c">#this can come at the end of any expression</span>
+<span class="pl-c">=begin</span>
+<span class="pl-c">This is a multiline comment.</span>
+<span class="pl-c">=begin should start at the first character of the line to be it a comment, other wise it wont work</span>
+<span class="pl-c"></span>
+<span class="pl-c">=end</span></pre></div>
+
+<pre><code>comment
+</code></pre>
+
+<h2>
+<a id="naming-conventions" class="anchor" href="#naming-conventions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Naming Conventions</h2>
+
+<p>For methods and variables we follow snake case like example_variable, example_function.
+For Classes we follow upper case letters, MyOwnClass.
+For functions which are risky to use, like reverse!, we add exclamation mark at the end.</p>
+
+<h2>
+<a id="function-chaining" class="anchor" href="#function-chaining" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function Chaining</h2>
+
+<div class="highlight highlight-source-ruby"><pre>my_string <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>tushar tuteja<span class="pl-pds">"</span></span></pre></div>
+
+<pre><code>"tushar tuteja"
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_string.reverse().upcase() <span class="pl-c"># You can chain function calls one after the other</span></pre></div>
+
+<pre><code>"AJETUT RAHSUT"
+</code></pre>
+
+<h2>
+<a id="string-formatter" class="anchor" href="#string-formatter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String Formatter</h2>
+
+<div class="highlight highlight-source-ruby"><pre>my_name <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Tushar Tuteja<span class="pl-pds">"</span></span>
+my_city <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Delhi<span class="pl-pds">"</span></span>
+puts <span class="pl-s"><span class="pl-pds">"</span>Hi, I am <span class="pl-pse">#{</span><span class="pl-s1">my_name</span><span class="pl-pse"><span class="pl-s1">}</span></span>, I belong to <span class="pl-pse">#{</span><span class="pl-s1">my_city</span><span class="pl-pse"><span class="pl-s1">}</span></span>.<span class="pl-pds">"</span></span> <span class="pl-c">#way to format complex strings.</span></pre></div>
+
+<pre><code>Hi, I am Tushar Tuteja, I belong to Delhi
+</code></pre>
+
+<h2>
+<a id="control-flow" class="anchor" href="#control-flow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Control Flow</h2>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">if</span> <span class="pl-c1">true</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>
+<span class="pl-k">else</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>false<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">false</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">"</span>false<span class="pl-pds">"</span></span> <span class="pl-c"># this is false</span></pre></div>
+
+<pre><code>false
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">false</span> <span class="pl-k">==</span> <span class="pl-c1">nil</span> <span class="pl-c"># this is false</span></pre></div>
+
+<pre><code>false
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_object <span class="pl-k">=</span> <span class="pl-c1">nil</span></pre></div>
+
+<div class="highlight highlight-source-ruby"><pre>my_object <span class="pl-k">==</span> <span class="pl-c1">nil</span></pre></div>
+
+<pre><code>true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_object.nil? <span class="pl-c"># this is the way to check nil</span></pre></div>
+
+<pre><code>true
+</code></pre>
+
+<p>Ruby has infinite true expressions, only two false expressions, one is false and the other is nil. So 0 would evaluate to true, this is different form C and C++ language.</p>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">if</span> my_object
+  puts <span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>
+<span class="pl-k">else</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>nil or false<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>nil or false
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_object <span class="pl-k">=</span> <span class="pl-c1">0</span>
+<span class="pl-k">if</span> my_object
+  puts <span class="pl-s"><span class="pl-pds">"</span>this evaluate to true<span class="pl-pds">"</span></span>
+<span class="pl-k">else</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>should have been false if we were coding in C.<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>this evaluate to true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>first_condition <span class="pl-k">=</span> <span class="pl-c1">false</span>
+second_condition <span class="pl-k">=</span> <span class="pl-c1">true</span>
+
+<span class="pl-k">if</span> first_condition
+  puts <span class="pl-s"><span class="pl-pds">"</span>first condition is true<span class="pl-pds">"</span></span>
+<span class="pl-k">elsif</span> second_condition
+  puts <span class="pl-s"><span class="pl-pds">"</span>second condition is true<span class="pl-pds">"</span></span>
+<span class="pl-k">elsif</span> <span class="pl-c1">0</span> <span class="pl-k">&gt;</span> <span class="pl-c1">3</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>won't happend<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>second condition is true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>hungry <span class="pl-k">=</span> <span class="pl-c1">true</span></pre></div>
+
+<pre><code>true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">if</span> <span class="pl-k">not</span> hungry 
+  puts <span class="pl-s"><span class="pl-pds">"</span>keep working<span class="pl-pds">"</span></span>
+<span class="pl-k">else</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>eat<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span></pre></div>
+
+<pre><code>eat
+</code></pre>
+
+<p>Ruby gives us more than if else, it gives us unless else, which is more verbose than if not. Example</p>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">unless</span> hungry
+  puts <span class="pl-s"><span class="pl-pds">"</span>keep working<span class="pl-pds">"</span></span>
+<span class="pl-k">else</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>Eat<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>Eat
+</code></pre>
+
+<h3>
+<a id="conditional-operators-------" class="anchor" href="#conditional-operators-------" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conditional Operators : == , &gt;= ,&lt;= ,!=, !</h3>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">5</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>5<span class="pl-pds">'</span></span></pre></div>
+
+<pre><code>false
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">5</span><span class="pl-k">*</span><span class="pl-c1">4</span> <span class="pl-k">==</span> <span class="pl-c1">4</span><span class="pl-k">*</span><span class="pl-c1">5</span></pre></div>
+
+<pre><code>true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">4</span> <span class="pl-k">&lt;</span> <span class="pl-c1">7</span></pre></div>
+
+<pre><code>true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">8</span> <span class="pl-k">&gt;</span> <span class="pl-c1">9</span>
+</pre></div>
+
+<pre><code>false
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-s"><span class="pl-pds">"</span>tushar<span class="pl-pds">"</span></span> <span class="pl-k">&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>tuteja<span class="pl-pds">"</span></span></pre></div>
+
+<pre><code>false
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">5</span> <span class="pl-k">&gt;=</span> <span class="pl-c1">5</span></pre></div>
+
+<pre><code>true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">4</span> <span class="pl-k">!=</span> <span class="pl-c1">5</span></pre></div>
+
+<pre><code>true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>!<span class="pl-c1">true</span></pre></div>
+
+<pre><code>false
+</code></pre>
+
+<h3>
+<a id="composite-conditional-statements" class="anchor" href="#composite-conditional-statements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Composite Conditional Statements</h3>
+
+<div class="highlight highlight-source-ruby"><pre>work_done <span class="pl-k">=</span> <span class="pl-c1">true</span>
+<span class="pl-k">if</span> work_done <span class="pl-k">||</span> hungry
+  puts <span class="pl-s"><span class="pl-pds">"</span>eat<span class="pl-pds">"</span></span>
+<span class="pl-k">else</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>work<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span></pre></div>
+
+<pre><code>eat
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>puts <span class="pl-c1">false</span> <span class="pl-k">||</span> <span class="pl-c1">true</span>
+puts <span class="pl-c1">true</span> <span class="pl-k">||</span> <span class="pl-c1">false</span>
+puts <span class="pl-c1">true</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">true</span>
+puts <span class="pl-c1">true</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">false</span>
+puts <span class="pl-c1">false</span> <span class="pl-k">||</span> <span class="pl-c1">false</span></pre></div>
+
+<pre><code>true
+true
+true
+false
+false
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">if</span> <span class="pl-k">not</span> <span class="pl-c1">false</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>it is true<span class="pl-pds">"</span></span>
+<span class="pl-k">else</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>it is false<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>it is true
+</code></pre>
+
+<h2>
+<a id="loops" class="anchor" href="#loops" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Loops</h2>
+
+<div class="highlight highlight-source-ruby"><pre>i <span class="pl-k">=</span> <span class="pl-c1">0</span> 
+<span class="pl-k">while</span> i <span class="pl-k">&lt;</span> <span class="pl-c1">5</span> 
+  puts <span class="pl-s"><span class="pl-pds">"</span>ruby is fun<span class="pl-pds">"</span></span>
+  i <span class="pl-k">=</span> i <span class="pl-k">+</span> <span class="pl-c1">1</span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>ruby is fun
+ruby is fun
+ruby is fun
+ruby is fun
+ruby is fun
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>i <span class="pl-k">=</span> <span class="pl-c1">5</span>
+<span class="pl-k">while</span>  i <span class="pl-k">!=</span> <span class="pl-c1">0</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>ruby is more verbose<span class="pl-pds">"</span></span>
+  i <span class="pl-k">=</span> i <span class="pl-k">-</span> <span class="pl-c1">1</span>
+<span class="pl-k">end</span></pre></div>
+
+<pre><code>ruby is more verbose
+ruby is more verbose
+ruby is more verbose
+ruby is more verbose
+ruby is more verbose
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>i <span class="pl-k">=</span> <span class="pl-c1">5</span>
+<span class="pl-k">until</span> i <span class="pl-k">==</span> <span class="pl-c1">0</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>ruby is more verbose<span class="pl-pds">"</span></span>
+  i <span class="pl-k">=</span> i <span class="pl-k">-</span> <span class="pl-c1">1</span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>ruby is more verbose
+ruby is more verbose
+ruby is more verbose
+ruby is more verbose
+ruby is more verbose
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">1</span>..<span class="pl-c1">5</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>ruby has many ways to do the same thing.<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span></pre></div>
+
+<pre><code>ruby has many ways to do the same thing.
+ruby has many ways to do the same thing.
+ruby has many ways to do the same thing.
+ruby has many ways to do the same thing.
+ruby has many ways to do the same thing.
+
+
+
+
+
+1..5
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">1</span>...<span class="pl-c1">5</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>..(two dots) inclues 1 and 5 both, where as ...(three dots) doesn't include 5<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span></pre></div>
+
+<pre><code>..(two dots) inclues 1 and 5 both, where as ...(three dots) doesn't include 5
+..(two dots) inclues 1 and 5 both, where as ...(three dots) doesn't include 5
+..(two dots) inclues 1 and 5 both, where as ...(three dots) doesn't include 5
+..(two dots) inclues 1 and 5 both, where as ...(three dots) doesn't include 5
+
+
+
+
+
+1...5
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">5</span>.times <span class="pl-k">do </span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>this needs to be done 5 times<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span></pre></div>
+
+<pre><code>this needs to be done 5 times
+this needs to be done 5 times
+this needs to be done 5 times
+this needs to be done 5 times
+this needs to be done 5 times
+
+
+
+
+
+5
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_string <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Ruby is made for productivity.<span class="pl-pds">"</span></span>
+words <span class="pl-k">=</span> my_string.split(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>)
+words.each <span class="pl-k">do </span>|<span class="pl-smi">word</span>| <span class="pl-c">#would discuss more of this in arrays and hashes</span>
+  puts word.capitalize <span class="pl-c"># This would capitalize every word</span>
+<span class="pl-k">end</span></pre></div>
+
+<pre><code>Ruby
+Is
+Made
+For
+Productivity.
+
+
+
+
+
+["Ruby", "is", "made", "for", "productivity."]
+</code></pre>
+
+<h2>
+<a id="arrays" class="anchor" href="#arrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Arrays</h2>
+
+<div class="highlight highlight-source-ruby"><pre>a <span class="pl-k">=</span> [] <span class="pl-c"># this creates an empty array</span></pre></div>
+
+<pre><code>[]
+</code></pre>
+
+<p>Arrays are lists in ruby, means they doesn't need to be homegenous.</p>
+
+<div class="highlight highlight-source-ruby"><pre>a <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">"</span>tushar<span class="pl-pds">"</span></span>, <span class="pl-c1">5</span>, [<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>]]</pre></div>
+
+<pre><code>["tushar", 5, [4, 5, 6]]
+</code></pre>
+
+<p>Arrays are continous data structures</p>
+
+<div class="highlight highlight-source-ruby"><pre>a <span class="pl-k">=</span> []
+a[<span class="pl-c1">45</span>] <span class="pl-k">=</span> <span class="pl-c1">5</span>
+puts a</pre></div>
+
+<pre><code>[nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 5]
+</code></pre>
+
+<p>a[45] = 0, created 45 empty spaces and then added 5 at 45th index. Indexing starts from zero.</p>
+
+<div class="highlight highlight-source-ruby"><pre>puts a[<span class="pl-c1">45</span>]</pre></div>
+
+<pre><code>5
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>puts a[<span class="pl-c1">0</span>]</pre></div>
+
+<div class="highlight highlight-source-ruby"><pre>puts a.length</pre></div>
+
+<pre><code>46
+</code></pre>
+
+<h2>
+<a id="hashes" class="anchor" href="#hashes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hashes</h2>
+
+<p>Hashes are smilar to javascript dictionaries, the only difference is that they are ordered. </p>
+
+<div class="highlight highlight-source-ruby"><pre>my_hash <span class="pl-k">=</span> {} <span class="pl-c"># creates a new Hash</span>
+</pre></div>
+
+<pre><code>{}
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_hash <span class="pl-k">=</span> <span class="pl-c1">Hash</span>.<span class="pl-k">new</span> <span class="pl-c"># creates a new Hash</span></pre></div>
+
+<pre><code>{}
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_hash <span class="pl-k">=</span> {<span class="pl-c1">:name</span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Tushar<span class="pl-pds">"</span></span>, <span class="pl-c1">:city</span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Delhi<span class="pl-pds">"</span></span>} <span class="pl-c"># Creates a hash </span></pre></div>
+
+<pre><code>{:name=&gt;"Tushar", :city=&gt;"Delhi"}
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_hash[<span class="pl-c1">:name</span>] <span class="pl-c"># to access :name from my_hash</span></pre></div>
+
+<pre><code>"Tushar"
+</code></pre>
+
+<p>:name and :city are actually symbols. they are used for faster accessing, we may use strings as well.</p>
+
+<div class="highlight highlight-source-ruby"><pre>my_hash <span class="pl-k">=</span> {<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>tushar<span class="pl-pds">"</span></span>}</pre></div>
+
+<pre><code>{"name"=&gt;"tushar"}
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>puts my_hash[<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>]
+puts my_hash[<span class="pl-c1">:name</span>] <span class="pl-c"># This won't work, you need to remember that strings and symbols are different</span></pre></div>
+
+<pre><code>tushar
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_hash <span class="pl-k">=</span> {<span class="pl-c1">:name</span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Tushar<span class="pl-pds">"</span></span>, <span class="pl-c1">:city</span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Delhi<span class="pl-pds">"</span></span>, <span class="pl-c1">:age</span> =&gt; <span class="pl-c1">25</span>}</pre></div>
+
+<pre><code>{:name=&gt;"Tushar", :city=&gt;"Delhi", :age=&gt;25}
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_hash.each <span class="pl-k">do </span>|<span class="pl-smi">key</span>| <span class="pl-c"># iterating over the keys</span>
+  puts key
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>[:name, "Tushar"]
+[:city, "Delhi"]
+[:age, 25]
+
+
+
+
+
+{:name=&gt;"Tushar", :city=&gt;"Delhi", :age=&gt;25}
+</code></pre>
+
+<p>If you look at the above code, the keys are ordered.</p>
+
+<div class="highlight highlight-source-ruby"><pre>my_hash.each <span class="pl-k">do </span>|<span class="pl-smi">key</span>,<span class="pl-smi">value</span>|
+  puts <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s1">key</span><span class="pl-pse"><span class="pl-s1">}</span></span> : <span class="pl-pse">#{</span><span class="pl-s1">value</span><span class="pl-pse"><span class="pl-s1">}</span></span><span class="pl-pds">"</span></span>
+<span class="pl-k">end</span></pre></div>
+
+<pre><code>name : Tushar
+city : Delhi
+age : 25
+
+
+
+
+
+{:name=&gt;"Tushar", :city=&gt;"Delhi", :age=&gt;25}
+</code></pre>
+
+<h2>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h2>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">def</span> <span class="pl-en">my_method</span>
+  puts <span class="pl-s"><span class="pl-pds">"</span>hello method<span class="pl-pds">"</span></span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>:my_method
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_method()</pre></div>
+
+<pre><code>hello method
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>my_method <span class="pl-c"># parenthesis are optional in ruby, it makes the code more verbose </span></pre></div>
+
+<pre><code>hello method
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">def</span> <span class="pl-en">is_odd</span> <span class="pl-smi">number</span> <span class="pl-c"># parenthesis are optional</span>
+  <span class="pl-k">return</span> number <span class="pl-k">%</span> <span class="pl-c1">2</span> <span class="pl-k">==</span> <span class="pl-c1">1</span>
+<span class="pl-k">end</span>
+
+is_odd <span class="pl-c1">1</span> <span class="pl-c"># parenthesis are optional</span></pre></div>
+
+<pre><code>true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">def</span> <span class="pl-en">is_even</span> <span class="pl-smi">number</span>
+  number <span class="pl-k">%</span> <span class="pl-c1">2</span> <span class="pl-k">==</span> <span class="pl-c1">0</span> <span class="pl-c">#last expression in every function is a return statement by default.</span>
+<span class="pl-k">end</span>
+</pre></div>
+
+<pre><code>:is_even
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre>is_even <span class="pl-c1">2</span></pre></div>
+
+<pre><code>true
+</code></pre>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">def</span> <span class="pl-en">join_words</span> <span class="pl-smi">words_array</span>
+  result <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
+  words_array.each <span class="pl-k">do </span>|<span class="pl-smi">word</span>|
+    result <span class="pl-k">=</span> result <span class="pl-k">+</span> word <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span> <span class="pl-c"># String concatenation</span>
+  <span class="pl-k">end</span>
+  result
+<span class="pl-k">end</span>
+
+puts join_words [<span class="pl-s"><span class="pl-pds">"</span>Ruby<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>is<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>flexible<span class="pl-pds">"</span></span>]</pre></div>
+
+<pre><code>Ruby is flexible 
+</code></pre>
+
+<p>What is you want to pass a variable number of arguments and you don't want to pass an array.</p>
+
+<p>Voila, we have *args arguement.</p>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">def</span> <span class="pl-en">join_words</span> <span class="pl-smi">*args</span>
+  result <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
+  args.each <span class="pl-k">do </span>|<span class="pl-smi">word</span>|
+    result <span class="pl-k">=</span> result <span class="pl-k">+</span> word <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span> <span class="pl-c"># String concatenation</span>
+  <span class="pl-k">end</span>
+  result
+<span class="pl-k">end</span>
+
+puts join_words <span class="pl-s"><span class="pl-pds">"</span>Ruby<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>is<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>flexible<span class="pl-pds">"</span></span> <span class="pl-c"># This code is more verbose</span>
+puts join_words <span class="pl-s"><span class="pl-pds">"</span>Ruby<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>is<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>flexible<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>,<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>This<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>code<span class="pl-pds">"</span></span> ,<span class="pl-s"><span class="pl-pds">"</span>is<span class="pl-pds">"</span></span> ,<span class="pl-s"><span class="pl-pds">"</span>more<span class="pl-pds">"</span></span> ,<span class="pl-s"><span class="pl-pds">"</span>verbose<span class="pl-pds">"</span></span>
+</pre></div>
+
+<pre><code>Ruby is flexible 
+Ruby is flexible , This code is more verbose 
+</code></pre>
+
 <div class="highlight highlight-source-ruby"><pre></pre></div>
       </section>
     </div>
