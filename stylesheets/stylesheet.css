@@ -186,7 +186,35 @@ code {
 pre code {
   display: block;
   box-shadow: none;
+  background-color: aliceblue;
 }
+
+
+    pre code::before{
+  content: "<output>";
+  color: black;
+  display: block;
+  position: absolute;
+  right: 0px;
+  background-color:white;
+  box-shadow: 1px 1px 1px white;
+  box-sizing: border-box;
+
+}
+
+div.highlight-source-ruby pre::before{
+  content: "<input>";
+  color: black;
+  display: block;
+  position: absolute;
+  right: 0px;
+  background-color:lightblue;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 1px white;
+
+
+}
+
 
 blockquote {
   color: #666;
