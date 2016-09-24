@@ -2,7 +2,10 @@
 # RubyTutorial
 
 We are using Jupyter Notebooks to make this tutorial.
-For those who don't know about Jupyter Notebooks, go [here](https://jupyter.org/).
+For those who don't know about Jupyter Notebooks, go [here](https://jupyter.org/). 
+Below is a sample, about how notebooks work.
+
+![alt text](https://raw.githubusercontent.com/CodingNinjasCodes/RubyTutorial/master/notebook_demo.gif "Without Smooth Scroll")
 
 ## Basics
 
