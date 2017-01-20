@@ -5,15 +5,18 @@ class DocumentTest <  Test::Unit::TestCase
 		@title = "Test"
 		@authur = "Tushar"
 		@content = "This is a test document"
-		@document = Document.new(@author,@title,@content)
+		
+		@document = Document.new(@authur,@title,@content)
+		puts "inside setup method"
 	end
+
 
 
 	def test_doc_creation
 		assert_not_equal @document,nil
 	end
 	def test_doc_author
-		assert_equal @auhtor,@document.author
+		assert_equal @authur,@document.author
 	end
 	def test_doc_content
 		assert_equal @content,@document.content
