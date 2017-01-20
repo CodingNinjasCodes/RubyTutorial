@@ -16,13 +16,16 @@ Below is a sample, about how notebooks work.
 my_num = 15
 my_string = "Tushar"
 my_bool = true
+my_own_string = "tuteja"
 
 puts my_num, my_string, my_bool
+puts my_own_string
 ```
 
     15
     Tushar
     true
+    tuteja
 
 
 Ruby is a dynamically typed Language, as we see in the above code, we assigned a number, a string value and a boolean to three different variables
@@ -303,7 +306,7 @@ my_city = "Delhi"
 puts "Hi, I am #{my_name}, I belong to #{my_city}." #way to format complex strings.
 ```
 
-    Hi, I am Tushar Tuteja, I belong to Delhi
+    Hi, I am Tushar Tuteja, I belong to Delhi.
 
 
 ## Control Flow
@@ -808,6 +811,63 @@ puts a.length
     46
 
 
+## Sets
+
+Sets are used to keep unique elements, no duplicates are allowed.
+
+
+
+```ruby
+my_set = Set.new() # New Empty Set
+my_set.add(1) # Add one Element
+
+my_set.each do |v|
+  puts v
+end
+
+my_set.add([1,2,3,4,5]) # adding [1,2,3,4,5] as a single element
+
+my_set.each do |v|
+  puts v
+end
+
+
+```
+
+    1
+    1
+    [1, 2, 3, 4, 5]
+
+
+
+
+
+    #<Set: {1, [1, 2, 3, 4, 5]}>
+
+
+
+
+```ruby
+a = [1,2,3,4,5,1,2,3,4,5] 
+my_set = a.to_set # Easy way to create a set from array
+puts my_set.size
+```
+
+    5
+
+
+
+```ruby
+my_set = Set.new([1,2,3,1,2,3])  # Easy way to create a set while initializing
+```
+
+
+
+
+    #<Set: {1, 2, 3}>
+
+
+
 ## Hashes
 
 Hashes are smilar to javascript dictionaries, the only difference is that they are ordered. 
@@ -1054,4 +1114,730 @@ puts join_words "Ruby","is","flexible",",", "This", "code" ,"is" ,"more" ,"verbo
     Ruby is flexible 
     Ruby is flexible , This code is more verbose 
 
-Some more content
+
+## Classes
+
+
+```ruby
+class MyClass # Defines a new Class
+end
+
+```
+
+
+```ruby
+my_class = MyClass.new # Creates a new instance of MyClass Object
+```
+
+
+
+
+    #<MyClass:0x007fde14956ec0>
+
+
+
+By default every class Inherits from Object class. When We Called MyClass.new , we called a constructor of Object class. 
+
+
+```ruby
+class MyClass
+  def initialize #Constructor method
+    puts "Constructor of MyClass is called"
+  end
+end
+
+```
+
+
+
+
+    :initialize
+
+
+
+
+```ruby
+my_class = MyClass.new
+```
+
+    Constructor of MyClass is called
+
+
+
+
+
+    #<MyClass:0x007fde13b31778>
+
+
+
+Classes contain methods and variables.
+By Default Methods are of two types
+* Instance Methods, that belongs to one instance of a class
+* class methods, that belongs to one class. 
+Visibility of Methods is of three types
+* private
+* protected
+* public, by default every method is public.
+
+Variables could be of three types
+* Local Variable in a function
+* Instance variables
+* Class variables
+
+We'll discuss all of above in the following section
+
+
+```ruby
+class Person
+  def initialize (name,age)
+    @name = name # this is how we declare instance variable, by having @ at the start
+    @age = age # same with age
+  end
+
+end
+
+```
+
+
+
+
+    :initialize
+
+
+
+
+```ruby
+person = Person.new("Tushar",25)
+```
+
+
+
+
+    #<Person:0x007fde140fa1f0 @name="Tushar", @age=25>
+
+
+
+
+```ruby
+person.public_methods
+```
+
+
+
+
+    [:name, :name=, :details, :is_adult, :instance_of?, :public_send, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :private_methods, :kind_of?, :instance_variables, :tap, :is_a?, :extend, :define_singleton_method, :to_enum, :enum_for, :<=>, :===, :=~, :!~, :eql?, :respond_to?, :freeze, :inspect, :display, :send, :object_id, :to_s, :method, :public_method, :singleton_method, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :trust, :untrusted?, :methods, :protected_methods, :frozen?, :public_methods, :singleton_methods, :!, :==, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
+
+
+
+We didn't define public_methods function, but it was called and it gave us some results. This is method that every object inherits from Object class.
+
+public_method functions gives us all the functions that could be called on that Object. In total Object class gives us 56 methods, which is a good thing and a bad thing. Bad thing as in now we have 56 names where our own name can collide. example, if we were to make SMS class, we would have send method, that would override the send method from Object class.
+
+
+Lets add some more functionality to our Person class
+
+
+```ruby
+class Person
+  def initialize (name,age)
+    @name = name # this is how we declare instance variable, by having @ at the start
+    @age = age # same with age
+  end
+  
+  def details # By default this method would be public
+    "Name: #{@name}"
+  end
+  
+  
+
+end
+
+```
+
+
+
+
+    :details
+
+
+
+
+```ruby
+person = Person.new("Tushar",25)
+```
+
+
+
+
+    #<Person:0x007fde132cba20 @name="Tushar", @age=25>
+
+
+
+
+```ruby
+person.details
+```
+
+
+
+
+    "Name: Tushar"
+
+
+
+Every Instance variable in any object is a private variable. You need to write getter methods for them. I can not access name and age directly from the person Object. So lets add those methods. This is a good news, as we don't want to reveal the age of the person, but we should have a way to check if the person is adult or not.
+
+
+```ruby
+class Person
+  def initialize (name,age)
+    @name = name # this is how we declare instance variable, by having @ at the start
+    @age = age # same with age
+  end
+  
+  def details # By default this method would be public
+    "Name: #{@name}"
+  end
+  
+  def name
+    @name
+  end
+  
+  def is_adult
+    @age > 18
+  end
+  
+  
+  
+
+end
+
+```
+
+
+
+
+    :is_adult
+
+
+
+
+```ruby
+person = Person.new("Tushar",25)
+puts person.name, person.is_adult
+
+```
+
+    Tushar
+    true
+
+
+We cannot change name or age once set, what if we want to change them, we need to add a setter method. Which is done in ruby as follows.
+
+
+```ruby
+class Person
+  def initialize (name,age)
+    @name = name # this is how we declare instance variable, by having @ at the start
+    @age = age # same with age
+  end
+  
+  def details # By default this method would be public
+    "Name: #{@name}"
+  end
+  
+  def name
+    @name
+  end
+  
+  def name= name # we are defining a special method, with '=' in the signature
+      @name = name
+  end
+  
+  def is_adult
+    @age > 18
+  end
+  
+  
+end
+
+```
+
+
+
+
+    :is_adult
+
+
+
+
+```ruby
+person = Person.new("Tushar",25)
+puts person.name
+person.name = "Tuteja"
+puts person.name
+```
+
+    Tushar
+    Tuteja
+
+
+### Private Methods in Ruby
+
+
+```ruby
+class Person
+  def initialize (name,age)
+    @name = name # this is how we declare instance variable, by having @ at the start
+    @age = age # same with age
+  end
+  
+  def details # By default this method would be public
+    "Name: #{@name}"
+  end
+  
+  def name
+    @name
+  end
+  
+  def name= name # we are defining a special method, with '=' in the signature
+      @name = name
+  end
+  
+  def is_adult
+    @age > 18
+  end
+  
+  private  # special keyword in ruby, after this everything we write would be private
+  def full_details # A private function
+    return @name, @age # Yes you can return more than one value, that would be returned as an array
+  end
+  
+  
+end
+```
+
+
+
+
+    :full_details
+
+
+
+
+```ruby
+person = Person.new("Tushar",25)
+person.full_details # Would throw an error
+```
+
+
+    NoMethodError: private method `full_details' called for #<Person:0x007fde131fbcf8 @name="Tushar", @age=25>
+
+    <main>:1:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:12:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:87:in `execute_request'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:47:in `dispatch'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:37:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:70:in `run_kernel'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:34:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/bin/iruby:5:in `<top (required)>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `load'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+### Inheritance 
+
+
+```ruby
+class RichPerson < Person # RichPerson Inherits from Person
+  def print_details
+    puts full_details # RichPerson Objects are able to call private functions of their parent classes,
+  end
+  
+end
+```
+
+
+
+
+    :print_details
+
+
+
+
+```ruby
+rich_person = RichPerson.new("Tushar",25)
+```
+
+
+    ArgumentError: wrong number of arguments (given 2, expected 4)
+
+    <main>:5:in `initialize'
+
+    <main>:in `new'
+
+    <main>:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:12:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:87:in `execute_request'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:47:in `dispatch'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:37:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:70:in `run_kernel'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:34:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/bin/iruby:5:in `<top (required)>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `load'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+
+```ruby
+rich_person.print_details
+```
+
+    ["Tuteja", 25]
+
+
+Child Class Objects can Call any private function of parent class.
+
+lets add some more functionality, lets suppose we want to add money in RichPerson class
+
+
+```ruby
+class RichPerson < Person # RichPerson Inherits from Person
+  def initialize name, age, money
+    super name, age # special keyword in ruby to call constructor of parent class
+    @money = money  
+  end
+  
+  def money 
+    @money
+  end
+  
+  def print_details
+    puts full_details # RichPerson Objects are able to call private functions of their parent classes,
+  end
+  
+end
+```
+
+
+
+
+    :print_details
+
+
+
+
+```ruby
+rich_person = RichPerson.new("Bill Gates",25,1)
+```
+
+
+
+
+    #<RichPerson:0x007fde14070270 @name="Bill Gates", @age=25, @money=1>
+
+
+
+
+```ruby
+rich_person.money
+```
+
+
+
+
+    1
+
+
+
+It is a hassle to write getter method, like we wrote above for money and setter method like we wrote for name. 
+For this ruby gives us short cuts.
+
+
+```ruby
+class RichPerson
+  attr_accessor :name, :money # Gives us getter and setter methods for name and money
+  attr_reader :age # gives us only getter
+  attr_writer :phone # gives us only setter
+  
+  def initialize(name, money,age,phone)
+    @name = name
+    @money = money
+    @age = age
+    @phone = phone
+  end
+  
+end
+
+rich_person = RichPerson.new("Tushar",1,25,9999999999)
+```
+
+
+
+
+    #<RichPerson:0x007fde13a6b410 @name="Tushar", @age=25, @money=1, @phone=9999999999>
+
+
+
+
+```ruby
+rich_person.age # attr_reader, created a method by the name age that returns @age
+```
+
+
+
+
+    25
+
+
+
+
+```ruby
+puts rich_person.name # attr_accesor, created a method by the name that returns @name
+rich_person.name = "Tuteja"# attr_accesor, created a method by the name=  that sets @name for us
+puts rich_person.name
+```
+
+    Tushar
+    Tuteja
+
+
+Similarly we can only change phone number but cannot see it
+
+
+# Blocks
+
+
+```ruby
+def special_function 
+  yield
+end
+
+
+```
+
+
+
+
+    :special_function
+
+
+
+special_function is a type of funciton which requires a block of code to run. If we call it without supplying any block it would give an error as follows. How does the function knows that it requires a block ? The answer is the yield statement, as soon we put a yield statement, the function knows that this is where I'll give control to a block supplied to me. 
+
+
+```ruby
+special_function 
+```
+
+
+    LocalJumpError: no block given (yield)
+
+    <main>:1:in `special_function'
+
+    <main>:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:12:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:87:in `execute_request'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:47:in `dispatch'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:37:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:70:in `run_kernel'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:34:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/bin/iruby:5:in `<top (required)>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `load'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+There are two ways to give a block. One is using a do end block and another is using {} braces. 
+
+
+```ruby
+special_function do 
+  puts " a block is given to this function "
+end
+
+# In This special function we'll receive a block of code that would be executed. 
+
+```
+
+     a block is given to this function 
+
+
+Where did the execution of that block occur ? Let's see another example to figure that out.
+
+
+
+```ruby
+def special_function 
+  puts " before yield statement "
+  yield
+  puts  " after yield statement "
+end
+
+
+```
+
+
+
+
+    :special_function
+
+
+
+ww'll give a block of code using curly braces this time.
+
+
+```ruby
+special_function {puts "A block of code is given"}
+```
+
+     before yield statement 
+    A block of code is given
+     after yield statement 
+
+
+
+```ruby
+def special_function
+  yield
+  yield
+end
+
+```
+
+
+
+
+    :special_function
+
+
+
+
+```ruby
+special_function {puts "A block of code is given"}
+```
+
+    A block of code is given
+    A block of code is given
+
+
+You can have more than one yield statement, but you can only pass one block. 
+
+What if our block of code requires a parameter to be executed ?
+
+
+
+```ruby
+def special_function
+  yield 5, [1,2,3] # these arguments would be passed to the block of code we'll supply
+end
+
+```
+
+
+
+
+    :special_function
+
+
+
+
+```ruby
+special_function { |first_number, second_array |   puts first_number,second_array }
+```
+
+    5
+    [1, 2, 3]
+
+
+
+```ruby
+def iterator n
+  i = 0 
+  while i < n
+    yield i
+    i = i + 1
+  end
+end
+```
+
+
+
+
+    :iterator
+
+
+
+
+```ruby
+iterator(10) do |x|
+  puts "this is the iteration number #{x}"
+end
+```
+
+    this is the iteration number 0
+    this is the iteration number 1
+    this is the iteration number 2
+    this is the iteration number 3
+    this is the iteration number 4
+    this is the iteration number 5
+    this is the iteration number 6
+    this is the iteration number 7
+    this is the iteration number 8
+    this is the iteration number 9
+
+
+
+```ruby
+
+```
