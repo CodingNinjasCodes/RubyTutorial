@@ -1639,6 +1639,204 @@ puts rich_person.name
 Similarly we can only change phone number but cannot see it
 
 
+# Blocks
+
+
+```ruby
+def special_function 
+  yield
+end
+
+
+```
+
+
+
+
+    :special_function
+
+
+
+special_function is a type of funciton which requires a block of code to run. If we call it without supplying any block it would give an error as follows. How does the function knows that it requires a block ? The answer is the yield statement, as soon we put a yield statement, the function knows that this is where I'll give control to a block supplied to me. 
+
+
+```ruby
+special_function 
+```
+
+
+    LocalJumpError: no block given (yield)
+
+    <main>:1:in `special_function'
+
+    <main>:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:12:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:87:in `execute_request'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:47:in `dispatch'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:37:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:70:in `run_kernel'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:34:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/bin/iruby:5:in `<top (required)>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `load'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+There are two ways to give a block. One is using a do end block and another is using {} braces. 
+
+
+```ruby
+special_function do 
+  puts " a block is given to this function "
+end
+
+# In This special function we'll receive a block of code that would be executed. 
+
+```
+
+     a block is given to this function 
+
+
+Where did the execution of that block occur ? Let's see another example to figure that out.
+
+
+
+```ruby
+def special_function 
+  puts " before yield statement "
+  yield
+  puts  " after yield statement "
+end
+
+
+```
+
+
+
+
+    :special_function
+
+
+
+ww'll give a block of code using curly braces this time.
+
+
+```ruby
+special_function {puts "A block of code is given"}
+```
+
+     before yield statement 
+    A block of code is given
+     after yield statement 
+
+
+
+```ruby
+def special_function
+  yield
+  yield
+end
+
+```
+
+
+
+
+    :special_function
+
+
+
+
+```ruby
+special_function {puts "A block of code is given"}
+```
+
+    A block of code is given
+    A block of code is given
+
+
+You can have more than one yield statement, but you can only pass one block. 
+
+What if our block of code requires a parameter to be executed ?
+
+
+
+```ruby
+def special_function
+  yield 5, [1,2,3] # these arguments would be passed to the block of code we'll supply
+end
+
+```
+
+
+
+
+    :special_function
+
+
+
+
+```ruby
+special_function { |first_number, second_array |   puts first_number,second_array }
+```
+
+    5
+    [1, 2, 3]
+
+
+
+```ruby
+def iterator n
+  i = 0 
+  while i < n
+    yield i
+    i = i + 1
+  end
+end
+```
+
+
+
+
+    :iterator
+
+
+
+
+```ruby
+iterator(10) do |x|
+  puts "this is the iteration number #{x}"
+end
+```
+
+    this is the iteration number 0
+    this is the iteration number 1
+    this is the iteration number 2
+    this is the iteration number 3
+    this is the iteration number 4
+    this is the iteration number 5
+    this is the iteration number 6
+    this is the iteration number 7
+    this is the iteration number 8
+    this is the iteration number 9
+
+
 
 ```ruby
 
