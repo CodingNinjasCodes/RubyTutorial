@@ -16,13 +16,16 @@ Below is a sample, about how notebooks work.
 my_num = 15
 my_string = "Tushar"
 my_bool = true
+my_own_string = "tuteja"
 
 puts my_num, my_string, my_bool
+puts my_own_string
 ```
 
     15
     Tushar
     true
+    tuteja
 
 
 Ruby is a dynamically typed Language, as we see in the above code, we assigned a number, a string value and a boolean to three different variables
@@ -303,7 +306,7 @@ my_city = "Delhi"
 puts "Hi, I am #{my_name}, I belong to #{my_city}." #way to format complex strings.
 ```
 
-    Hi, I am Tushar Tuteja, I belong to Delhi
+    Hi, I am Tushar Tuteja, I belong to Delhi.
 
 
 ## Control Flow
@@ -1129,7 +1132,7 @@ my_class = MyClass.new # Creates a new instance of MyClass Object
 
 
 
-    #<MyClass:0x007fc5e9d14280>
+    #<MyClass:0x007fde14956ec0>
 
 
 
@@ -1163,7 +1166,7 @@ my_class = MyClass.new
 
 
 
-    #<MyClass:0x007fc5e9d27498>
+    #<MyClass:0x007fde13b31778>
 
 
 
@@ -1210,7 +1213,7 @@ person = Person.new("Tushar",25)
 
 
 
-    #<Person:0x007fc5ea1b2850 @name="Tushar", @age=25>
+    #<Person:0x007fde140fa1f0 @name="Tushar", @age=25>
 
 
 
@@ -1222,7 +1225,7 @@ person.public_methods
 
 
 
-    [:to_json, :instance_of?, :public_send, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :private_methods, :kind_of?, :instance_variables, :tap, :is_a?, :extend, :define_singleton_method, :to_enum, :enum_for, :<=>, :===, :=~, :!~, :eql?, :respond_to?, :freeze, :inspect, :display, :send, :object_id, :to_s, :method, :public_method, :singleton_method, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :trust, :untrusted?, :methods, :protected_methods, :frozen?, :public_methods, :singleton_methods, :!, :==, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
+    [:name, :name=, :details, :is_adult, :instance_of?, :public_send, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :remove_instance_variable, :private_methods, :kind_of?, :instance_variables, :tap, :is_a?, :extend, :define_singleton_method, :to_enum, :enum_for, :<=>, :===, :=~, :!~, :eql?, :respond_to?, :freeze, :inspect, :display, :send, :object_id, :to_s, :method, :public_method, :singleton_method, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :taint, :tainted?, :untaint, :untrust, :trust, :untrusted?, :methods, :protected_methods, :frozen?, :public_methods, :singleton_methods, :!, :==, :!=, :__send__, :equal?, :instance_eval, :instance_exec, :__id__]
 
 
 
@@ -1266,7 +1269,7 @@ person = Person.new("Tushar",25)
 
 
 
-    #<Person:0x007fc5ea1c3718 @name="Tushar", @age=25>
+    #<Person:0x007fde132cba20 @name="Tushar", @age=25>
 
 
 
@@ -1428,7 +1431,7 @@ person.full_details # Would throw an error
 ```
 
 
-    NoMethodError: private method `full_details' called for #<Person:0x007fc5ea1e9a30 @name="Tushar", @age=25>
+    NoMethodError: private method `full_details' called for #<Person:0x007fde131fbcf8 @name="Tushar", @age=25>
 
     <main>:1:in `<main>'
 
@@ -1484,10 +1487,39 @@ rich_person = RichPerson.new("Tushar",25)
 ```
 
 
+    ArgumentError: wrong number of arguments (given 2, expected 4)
 
+    <main>:5:in `initialize'
 
-    #<RichPerson:0x007fc5e9d57620 @name="Tushar", @age=25>
+    <main>:in `new'
 
+    <main>:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:44:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/backend.rb:12:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:87:in `execute_request'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:47:in `dispatch'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/kernel.rb:37:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:70:in `run_kernel'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/lib/iruby/command.rb:34:in `run'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/gems/iruby-0.2.9/bin/iruby:5:in `<top (required)>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `load'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/iruby:22:in `<main>'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+
+    /Users/tushartuteja/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
 
 
 
@@ -1495,7 +1527,7 @@ rich_person = RichPerson.new("Tushar",25)
 rich_person.print_details
 ```
 
-    ["Tushar", 25]
+    ["Tuteja", 25]
 
 
 Child Class Objects can Call any private function of parent class.
@@ -1530,13 +1562,13 @@ end
 
 
 ```ruby
-rich_person = RichPerson.new("Tushar",25,1)
+rich_person = RichPerson.new("Bill Gates",25,1)
 ```
 
 
 
 
-    #<RichPerson:0x007fc5e92d4ae0 @name="Tushar", @age=25, @money=1>
+    #<RichPerson:0x007fde14070270 @name="Bill Gates", @age=25, @money=1>
 
 
 
@@ -1577,7 +1609,7 @@ rich_person = RichPerson.new("Tushar",1,25,9999999999)
 
 
 
-    #<RichPerson:0x007fc5e88eeb20 @name="Tushar", @age=25, @money=1, @phone=9999999999>
+    #<RichPerson:0x007fde13a6b410 @name="Tushar", @age=25, @money=1, @phone=9999999999>
 
 
 
