@@ -393,14 +393,14 @@ end
 ```ruby
 my_object = 0
 if my_object
-  puts "this evaluates to true"
+  puts "this evaluate to true"
 else
   puts "should have been false if we were coding in C."
 end
 
 ```
 
-    this evaluates to true
+    this evaluate to true
 
 
 
@@ -413,7 +413,7 @@ if first_condition
 elsif second_condition
   puts "second condition is true"
 elsif 0 > 3
-  puts "won't happen"
+  puts "won't happend"
 end
 
 ```
@@ -769,7 +769,7 @@ a = ["tushar", 5, [4,5,6]]
 
 
 
-Arrays are continuous data structures
+Arrays are continous data structures
 
 
 
@@ -794,7 +794,7 @@ puts a[45]
 
 
 ```ruby
-puts a[0] # Would print nothing
+puts a[0]
 ```
 
     
@@ -1054,4 +1054,8 @@ puts join_words "Ruby","is","flexible",",", "This", "code" ,"is" ,"more" ,"verbo
     Ruby is flexible 
     Ruby is flexible , This code is more verbose 
 
-Some more content
+
+
+```ruby
+
+```
