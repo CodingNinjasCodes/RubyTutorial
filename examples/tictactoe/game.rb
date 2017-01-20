@@ -9,6 +9,7 @@ class Game
 
 
 	def print_game
+		system("clear")
 		@board.print_board
 		puts "#{current_move} turn"
 		puts "Please enter row, column to make next move "
