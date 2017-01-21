@@ -785,7 +785,7 @@ puts a
     [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 5]
 
 
-a[45] = 0, created 45 empty spaces and then added 5 at 45th index. Indexing starts from zero.
+a[45] = 5, created 45 empty spaces and then added 5 at 45th index. Indexing starts from zero.
 
 
 ```ruby
