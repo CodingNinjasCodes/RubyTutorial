@@ -788,7 +788,7 @@ Arrays are continuous data structures
 ```ruby
 a = []
 a[45] = 5
-puts a
+p a
 ```
 
     [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 5]
