@@ -1101,7 +1101,7 @@ puts join_words ["Ruby","is","flexible"]
     Ruby is flexible 
 
 
-What is you want to pass a variable number of arguments and you don't want to pass an array.
+What if you want to pass a variable number of arguments and you don't want to pass an array.
 
 Voila, we have *args arguement.
 
