@@ -473,8 +473,17 @@ end
 
 
 
-
     false
+
+
+
+```ruby
+Integer === 21
+```
+
+
+
+    true
 
 
 
