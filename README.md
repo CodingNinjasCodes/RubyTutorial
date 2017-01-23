@@ -463,7 +463,7 @@ end
     Eat
 
 
-### Conditional Operators : == , >= ,<= ,!=, !
+### Conditional Operators : == , ===, >= ,<= ,!=, !
 
 
 
